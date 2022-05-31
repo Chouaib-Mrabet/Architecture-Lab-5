@@ -13,9 +13,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         name: 'REDISCLIENT',
         transport: Transport.REDIS,
         options : {
-
           url: 'redis://localhost:6379',
-  
         }
       },
     ]),

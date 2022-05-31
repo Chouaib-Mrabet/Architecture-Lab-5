@@ -18,13 +18,13 @@ export class ProductService {
             price: dto.price,
             qte: dto.qte
         });
-        this.emit('Commande-create', {body: 'A reservation has been created.'});
+        this.emit('Commande-create', {body: 'creation.'});
         return user;
     }
 
     async deleteCommande(id: number) {
         const product = this.productRepository.delete({id: id});
-        this.emit('Commande-delete', {body: 'A reservation has been deleted.'});
+        this.emit('Commande-delete', {body: 'deleted'});
         return product;
     }
     emit(arg0: string, arg1: { body: string; }) {

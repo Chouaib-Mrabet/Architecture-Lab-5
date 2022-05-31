@@ -12,6 +12,7 @@ export class ProductService {
     @InjectModel('product') private readonly productModel: Model<Product>,
     @Inject('REDISCLIENT') private readonly redisClient: ClientProxy,
     ){}
+    
   async create(createProductDto: CreateProductDto): Promise<Product> {
     const newProduct = new this.productModel(createProductDto);
     this.redisClient.emit('add-new-product',createProductDto)

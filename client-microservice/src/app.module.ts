@@ -8,7 +8,7 @@ import { UserEntity } from './user/entity/user.entity';
 import { UserService } from './user/user.service';
 import { Product } from './product/entity/product.entity';
 import { ProductService } from './product/product.service';
-import { ClientProxy, ClientsModule, Transport } from '@nestjs/microservices';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [

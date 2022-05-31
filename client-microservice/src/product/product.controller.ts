@@ -20,6 +20,6 @@ export class ProductController {
 
     @MessagePattern({cmd: 'notifications-Commande'})
     async getNotificationsAboutCommande(name: string) {
-        console.log(`Channel: ${name}`);   
+        console.log(`${name}`);   
     }
 }

@@ -18,14 +18,17 @@ export class ProductController {
   getProducts(): Promise<Product[]> {
     return this.productService.findAll();
   }
+  
   @Post('/publish-product')
   create(@Body() product: CreateProductDto): CreateProductDto {
     return this.productService.create(product);
   }
+
   @Post('/update/:id')
   async update(@Body() updateProduct: UpdateProductDto, @Param() params) {
     return await this.productService.update(params.id, updateProduct);
   }
+
   @EventPattern('product-edit')
   async handleClient(data: Record<string, string>) {
     await this.productService.updateQuantity(data.name, data.quantity);

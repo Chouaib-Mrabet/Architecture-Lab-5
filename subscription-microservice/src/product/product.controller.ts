@@ -1,7 +1,5 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import { ProductService } from './product.service';
-import { CreateProductDto } from './dto/create-product.dto';
-import { UpdateProductDto } from './dto/update-product.dto';
 import { EventPattern, MessagePattern, Payload, Transport } from '@nestjs/microservices';
 import { Product } from './entities/product.entity';
 
@@ -18,6 +16,7 @@ export class ProductController {
   getGreetingMessage(name: string): string {
     return `Hello ${name}`;
   }
+  
   @MessagePattern({ cmd: 'products' })
   findAll(): Promise<Product[]> {
     console.log(this.productService.findAll())
